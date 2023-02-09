@@ -1,0 +1,24 @@
+{% extends "maestra.html" %}
+
+{% block content %}
+<h3>Pagina Ejemplo Parametros</h3>
+
+<div class="container">
+    <h3>IES: {{ centro }}</h3>
+    <h4>Parametro recibido por URL : {{nombre}}</h4>
+    <h4>Usuario: {{ usu.nombre }},{{ usu.apellidos }}, {{ usu.edad }}</h4>
+    {# iterar la lista de usuarios #}
+    {% for v in lista_usu %}
+    <li>{{ v }}</li>
+    {% endfor %}
+    <hr />
+    {# iterar con las claves #}
+    {% for usuario in lusta_usu %}
+    <li>
+        {% for c,v in usuario.items() %}
+        {{ c }}: {{ v }},
+        {% endfor %}
+    </li>
+    {% endfor %}
+</div>
+{% endblock %}
